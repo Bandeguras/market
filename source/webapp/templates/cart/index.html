@@ -1,0 +1,44 @@
+
+{% extends 'product/base.html' %}
+
+{% block nav %}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+    <h1>Cart</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cart in products %}
+            <tr>
+                <th>{{ cart.product.title }}</th>
+                <td>{{ cart.qty }}</td>
+                <td>{{ cart.product.price }}</td>
+                <td>{{ product_total }}</td>
+                <td><a href="{% url 'cart_delete' cart.product.pk %}">Delete</a></td>
+                 <td><a href="{% url 'cart_delete_one' cart.product.pk %}">Delete One</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h5>Total price : {{ total }}</h5>
+
+    <form action="{% url 'order_create' %}" method="POST">
+        {% include 'partial/form.html' with button_text='Order' %}
+    </form>
+
+{% endblock %}

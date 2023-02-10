@@ -1,0 +1,75 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "title": "Apple",
+    "stock": 500,
+    "price": "75.00",
+    "category": "food",
+    "description": "imported apple varieties \"Apports\""
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "title": "paracetamol",
+    "stock": 600,
+    "price": "250.00",
+    "category": "pharmacy",
+    "description": "Paracetamol is a common painkiller used to treat aches and pain. It can also be used to reduce a high temperature."
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "title": "Espumisan",
+    "stock": 500,
+    "price": "600.00",
+    "category": "pharmacy",
+    "description": "Espumisan capsules belong to a group of medicines called \"gastrointestinal drugs.\" The active ingredient, simethicone, breaks down gas bubbles trapped in the stomach and intestines. Thus, the evolved gases are removed naturally."
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "title": "Automatic coffee machine DeLonghi",
+    "stock": 10,
+    "price": "95000.00",
+    "category": "other",
+    "description": "The DeLonghi PrimaDonna Elite ECAM650.85.MS automatic coffee machine is a model with a very wide range of features. It comes preloaded with 18 recipes, including espresso, cappuccino, latte macchiato, flat white, iced coffee and even hot chocolate, for which a special decanter is attached. Touch control, it is responsible for the 4.3-inch ..."
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "title": "Banana",
+    "stock": 800,
+    "price": "150.00",
+    "category": "food",
+    "description": "Firms \"Dole\". Banana - one of the food crops, and for tropical countries the most nutritious food plant and the main export item. Ripe bananas are widely eaten around the world and are used in a wide variety of dishes."
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$bSAtdK1fIMBI3tasBgd1Qt$KreV+QBvwnuA6I3HgY7lMbtAwPahYkvPFcGJBKaB8Co=",
+    "last_login": "2022-11-14T14:24:48.781Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-11T17:33:05.366Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

@@ -1,0 +1,41 @@
+
+{% extends 'product/base.html' %}
+
+{% block nav %}
+    {% if perms.webapp.add_product %}
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'create' %}">Add Item</a>
+    </li>
+    {% endif %}
+    {% if perms.webapp.change_product %}
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'update' product.pk %}">Update</a>
+    </li>
+    {% endif %}
+    {% if perms.webapp.delete_product %}
+    <li class="nav-item">
+          <a class="nav-link text-danger" href="{% url 'delete' product.pk %}">Delete</a>
+    </li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+
+         <div class="card mt-5 border-success" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title fs-2">{{ product.title }}</h5>
+                <p class="card-text fs-4">{{ product.description }}</p>
+              </div>
+              <ul class="list-group list-group-flush fs-5">
+                <li class="list-group-item">Category: {{ product.category}}</li>
+                <li class="list-group-item">Price: {{ product.price }} kgs</li>
+                <li class="list-group-item">Stocks: {{ product.stock }}</li>
+                  <li class="list-group-item"> {% include 'partial/cart_item.html' %}</li>
+              </ul>
+
+        </div>
+
+{% endblock %}
+

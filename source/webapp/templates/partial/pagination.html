@@ -1,0 +1,53 @@
+
+<ul class="pagination navbar  ">
+<div class="container">
+    {% if not page_obj.has_previous %}
+        <li class="page-item disabled ">
+            <a class="page-link fw-bold text-white-50 bg-secondary">&laquo; First</a>
+        </li>
+        <li class="page-item disabled">
+            <a class="page-link fw-bold text-info bg-secondary">Previous</a>
+        </li>
+    {% else %}
+        <li class="page-item">
+            <a class="page-link fw-bold text-info bg-secondary"  href="?{% if query %}{{ query }}&{% endif %}page=1">&laquo; First </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link fw-bold text-info bg-secondary" href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link text-info bg-secondary"
+                                 href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+        </li>
+    {% endif %}
+
+    <li class="page-item active " aria-current="page">
+         <form method="get">
+             {% if search %}<input type="hidden" name="search" value="{{ search }}">{% endif %}
+            <input type="text" class="form-control text-info bg-secondary text-center" name="page" value="{{ page_obj.number }}">
+        </form>
+
+    </li>
+
+    {% if not page_obj.has_next %}
+        <li class="page-item disabled">
+            <a class="page-link fw-bold text-white-50 bg-secondary">Next</a>
+        </li>
+
+        <li class="page-item disabled">
+            <a class="page-link text-white-50 bg-secondary">Last &raquo;</a>
+
+        </li>
+    {% else %}
+        <li class="page-item text-info bg-secondary"><a class="page-link text-info bg-secondary"
+                                 href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+        <li class="page-item">
+            <a class="page-link fw-bold text-info bg-secondary" href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.next_page_number }}">Next</a>
+
+        </li>
+        <li class="page-item ">
+            <a class="page-link fw-bold text-info bg-secondary" href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+
+        </li>
+    {% endif %}
+ </div>
+</ul>

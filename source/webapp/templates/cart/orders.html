@@ -1,0 +1,27 @@
+
+{% extends 'product/base.html' %}
+
+
+{% block content %}
+
+      {% for order in orders %}
+
+        {% for item in order.order_product.all %}
+         <div class="card mt-5 border-success my-5" style="width: 18rem;">
+              <div class="card-body ">
+                <h5 class="card-title fs-2">{{ item.product.title }}</h5>
+                <p class="card-text fs-4"> Quantity: {{ item.qty }}</p>
+              </div>
+              <ul class="list-group list-group-flush fs-5">
+
+                <li class="list-group-item">Price: {{ item.product.price}} kgs</li>
+                <li class="list-group-item">Total price: {{ product.total_amount }}</li>
+
+              </ul>
+             {% endfor %}
+
+
+         <h3>Total: </h3>
+        </div>
+     {% endfor %}
+{% endblock %}

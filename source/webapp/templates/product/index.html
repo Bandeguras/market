@@ -1,0 +1,46 @@
+{% extends 'product/base.html' %}
+
+{% block nav %}
+    {% if perms.webapp.add_product %}
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'create' %}">Add Item</a>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+            {% include 'partial/simple_search.html' %}
+     </li>
+{% endblock %}
+
+
+{% block content %}
+
+    <br>
+        <h1 class="text-center text-info">WELCOME TO SHOP</h1>
+        <hr>
+        {% for product in products %}
+            <div class="card text-center  my-5 ">
+              <div class="card-header text-light bg-dark ">
+                Category:  '{{ product.category }}'
+              </div>
+              <div class="card-body bg-warning">
+                <h5 class="card-title fs-5">Item: {{ product.title }}</h5>
+
+                <a href="{% url 'view' product.id %}" class="btn btn-primary">Detailed</a>       {% include 'partial/cart_item.html' %}
+
+              </div>
+              <div class="card-footer bg-dark text-muted fs-4 ">
+                Price: {{ product.price }} kgs
+              </div>
+            </div>
+
+
+        {% endfor %}
+
+
+
+                {% if is_paginated %}
+                    {% include 'partial/pagination.html' %}
+                {% endif %}
+
+
+{% endblock %}

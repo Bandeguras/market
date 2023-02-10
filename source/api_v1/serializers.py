@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from webapp.models import Product, Order
+from webapp.models import Product, Order, OrderProduct
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -9,22 +9,16 @@ class ProductSerializer(serializers.ModelSerializer):
         read_only_fields = ['id']
 
 
-class ProductOrderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product
-        fields = ['id', 'title']
-
-
 class OrderSerializer(serializers.ModelSerializer):
-
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
-        data['products'] = ProductOrderSerializer(instance.products.all(), many=True).data
-        return data
-
     class Meta:
         model = Order
         fields = ['name', 'phone', 'address', 'created_at', 'products', 'user']
         read_only_fields = ['id', 'created_at', 'user']
 
+
+class OrderProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderProduct
+        fields = ['id', 'product', 'order', 'qty']
+        read_only_fields = ['id']
 
